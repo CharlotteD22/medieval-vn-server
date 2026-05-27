@@ -7,7 +7,11 @@ const router = require("express").Router();
 const app = express();
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-app.use(cors({ origin: "https://charlotte-dulac.fr" }));
+app.use(
+  cors({
+    origin: ["https://charlotte-dulac.fr", "http://localhost:3000"],
+  }),
+);
 app.use(express.json());
 
 // Connexion BDD
