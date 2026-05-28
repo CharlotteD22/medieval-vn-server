@@ -1,6 +1,10 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+console.log(
+  "API KEY:",
+  process.env.ANTHROPIC_API_KEY ? "définie" : "manquante",
+);
 const express = require("express");
 const cors = require("cors");
 const Anthropic = require("@anthropic-ai/sdk");
