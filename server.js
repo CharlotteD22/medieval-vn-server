@@ -11,7 +11,11 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 app.use(
   cors({
-    origin: ["https://charlotte-dulac.fr", "http://localhost:3000"],
+    origin: [
+      "https://charlotte-dulac.fr",
+      "http://localhost:3000",
+      "https://medieval-vn-server-production.up.railway.app",
+    ],
   }),
 );
 app.use(express.json());
