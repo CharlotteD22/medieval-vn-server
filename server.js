@@ -77,7 +77,10 @@ router.post("/save", async (req, res) => {
     );
 
     if (existing.length > 0) {
-      const history = JSON.parse(existing[0].history || "[]");
+      const history =
+        typeof existing[0].history === "string"
+          ? JSON.parse(existing[0].history)
+          : existing[0].history || [];
       // Ajoute l'entrée seulement si la scène n'est pas déjà la dernière
       if (!history.length || history[history.length - 1].sceneId !== sceneId) {
         history.push(historyEntry);
